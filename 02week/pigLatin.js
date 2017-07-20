@@ -1,5 +1,40 @@
 'use strict';
 
+/*WHITEBOARDING
+-Check beginning of word for vowels.
+--If word starts with vowel add 'ay' to end of word
+--If consonant, split letters
+-Append consonants to the end of word
+-THEN add 'ay' to the end
+*/
+
+//MY CODE
+var word = "renata";
+var firstLetter = word.charAt(0);
+
+function testForVowel(obj) {
+  var arrayVowels = ['a','e','i','o','u'];
+    return (arrayVowels.indexOf(obj) != -1);
+}
+testForVowel(firstLetter)
+
+function split_letters(letters){
+  return (letters.substring(1) + letters.charAt(0));
+}
+split_letters(word);
+
+function addAy(param) {
+   return param + "ay";
+}
+addAy(word);
+
+
+
+
+
+
+
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -8,10 +43,11 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+const translatePigLatin = (word) => {
+  if (first == "a" || first == "e" || first == "i" || first == "o" || first == "u")
 
-  // Your code here
-
+} else {
+  run again;
 }
 
 
