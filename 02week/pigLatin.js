@@ -10,7 +10,25 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+  var word = "renata";
+  var firstLetter = word.charAt(0);
+
+  function testForVowel(obj) {
+    var arrayVowels = ['a','e','i','o','u'];
+      return (arrayVowels.indexOf(obj) != -1);
+  }
+  testForVowel(firstLetter)
+
+  function split_letters(letters){
+    return (letters.substring(1) + letters.charAt(0));
+  }
+  split_letters(word);
+
+  function addAy(param) {
+     return param + "ay";
+  }
+  addAy(word);
+
 
 }
 
