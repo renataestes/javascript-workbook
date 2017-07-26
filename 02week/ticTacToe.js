@@ -1,5 +1,16 @@
 'use strict';
 
+
+//if no, push that player marker to that index
+//make a copy to the board
+//const updatedBoard = [...board];
+//slice the row, store to const, (not splice)
+//const updatedRow = board.slice(row, row+1) [0];
+//console.log(updatedRow, 'Row')
+
+/*Check it marker exists at row/column
+If no wins, switch player, display the updated boardIf any wins come back return the player winner, clear the board*/
+
 //Horizontal Win [0,1,2], [3,4,5], [6,7,8]
 // Vertical Win: [0,3,6], [1,4,7], [2,5,8]
 // Diagonal Win: [0,4,8], [0,2,6]
@@ -32,7 +43,6 @@ function printBoard() {
 function horizontalWin() {
   if ('a win in a row') {
       [ { x: 0, o: 6 }, { x: 1, o: 7 }, { x: 2, o: 8 }] || [ { x: 3, o: 0 }, { x: 4, o: 1 }, { x: 5, o: 2 }] || [ { x: 6, o: 3 }, { x: 7, o: 4 }, { x: 8, o: 5 }] {
-        
       });
       return ('player " " wins!');
     });

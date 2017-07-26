@@ -1,5 +1,39 @@
 'use strict';
 
+var clicker = function() {
+  // Put app logic here
+var $block = null;
+var m = 0;
+  $("[data-stack]").click(function(){
+     m = m +1;
+    $("#counter").html(m);
+    var $data_stack = $(this);
+    var $children = $data_stack.children();
+    var $lastChild = $children.last();
+
+    if ($block == null) {
+      $block = $lastChild.detach();
+    } else {
+      if ( $lastChild.data("block") < $block.data("block")) {
+        alert("Invalid Move");
+      } else {
+        $(this).append($block);
+        $block = null;
+      }
+    }
+    if ( $("[data-stack='2']").children().length >= 4 || $("[data-stack='3']").children().length >= 4 )
+  {
+    alert("You Win!!");
+  }
+
+});
+}
+
+$(document).ready(clicker);
+
+
+
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
