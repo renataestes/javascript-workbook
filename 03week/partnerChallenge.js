@@ -19,6 +19,6 @@ const partnerArr = Object.keys(partnerObj);
 console.log(partnerArr);
 
 for (var i in partnerArr){
-    console.log(partnerArr[i])
-    console.log(partnerObj[partnerArr[i]])
+  console.log(partnerArr[i])
+  console.log(partnerObj[partnerArr[i]])
 }
