@@ -10,11 +10,12 @@ let stacks = {
 //You click on the first CoR to remove a stack (pop)
 //You click on one of the other CoR to add that stack you removed (movePiece)
 //~>You must check the CoR to see if there is already a stack there.
-(push)function movePiece() {
+//(push)//
+function movePiece() {
   if (stacks == null) {
     stacks.pop();
   } else {
-    if (last) < (last) {
+    if (last < last) {
       alert("Invalid Move");
     } else {
       stacks.push();
@@ -35,7 +36,7 @@ var clicker = function() {
     var children = stack.children();
     var lastChild = children.last();
 
-        if ((stack ='2']).children().length >= 4) || ((stack ='3']).children().length >= 4)
+        if ((stack ='2').children().length >= 4 || (stack ='3').children().length >= 4)
   {
       alert("You Win!!");
     }
@@ -73,7 +74,7 @@ function movePiece() {
   if (stacks == null) {
     stacks.pop();
   } else {
-    if (last) < (last) {
+    if (last < last) {
       alert("Invalid Move");
     } else {
       stacks.push();
@@ -151,8 +152,8 @@ if (typeof describe === 'function') {
 }
 
 
-//function towersOfHanoi (startStack, endStack)
-//if sourceStack arry.last < targetStack array.last then
-//   return true
-//  end if
-//return false
+/*function towersOfHanoi (startStack, endStack)
+if sourceStack arry.last < targetStack array.last then
+  return true
+  end if
+return false*/
