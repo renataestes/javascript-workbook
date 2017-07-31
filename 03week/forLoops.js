@@ -33,6 +33,6 @@ while (n < 1001) {
 /*
 A "for loop" is better than a "while loop" when you know the exact number of iterations you need to do for a specific problem.
 
-The difference between a for loop and a for...in loop is
+The difference between a for loop and a for...in loop is a for loop is used to iterate through an array and a for..in loop is to iterate over the properties of an object. 
 
-The difference between a while loop and a do...while loop is a while loop keeps going until something rings true. The do...while loop when some sort of task or function needs to be done first before you start running that loop. 
+The difference between a while loop and a do...while loop is a while loop keeps going until something rings true. The do...while loop when some sort of task or function needs to be done first before you start running that loop.
