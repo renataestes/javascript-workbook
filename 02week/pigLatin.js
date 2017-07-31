@@ -14,7 +14,7 @@ var firstLetter = word.charAt(0);
 
 function testForVowel(obj) {
   var arrayVowels = ['a','e','i','o','u'];
-    return (arrayVowels.indexOf(obj) != -1);
+  return (arrayVowels.indexOf(obj) != -1);
 }
 testForVowel(firstLetter)
 
@@ -24,16 +24,9 @@ function split_letters(letters){
 split_letters(word);
 
 function addAy(param) {
-   return param + "ay";
+  return param + "ay";
 }
 addAy(word);
-
-
-
-
-
-
-
 
 const assert = require('assert');
 const readline = require('readline');
@@ -45,14 +38,12 @@ const rl = readline.createInterface({
 
 const translatePigLatin = (word) => {
   if (first == "a" || first == "e" || first == "i" || first == "o" || first == "u")
-
-} else {
-  run again;
-}
-
+  {
+  return word + "ay";
+    };
 
 function getPrompt() {
-  rl.question('word ', (answer) => {
+    rl.question('word ', (answer) => {
     console.log( pigLatin(answer) );
     getPrompt();
   });
@@ -81,7 +72,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
   getPrompt();
-
-}
+};
