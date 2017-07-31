@@ -8,7 +8,7 @@
 //const updatedRow = board.slice(row, row+1) [0];
 //console.log(updatedRow, 'Row')
 
-/*Check it marker exists at row/column
+/*Check it marker exists at row/columns
 If no wins, switch player, display the updated boardIf any wins come back return the player winner, clear the board*/
 
 //Horizontal Win [0,1,2], [3,4,5], [6,7,8]
