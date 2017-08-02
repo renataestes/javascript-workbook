@@ -15,6 +15,7 @@ for (let i = 0; i < 1000; i++) {
 }
 
 function bubbleSort(arr) {
+var len  = arr.length;
 for (i=0; i< arr.length; i++){
   if (arr[i] > arr[i + 1]) {
     let temp = arr[i]
@@ -27,7 +28,28 @@ bubbleSort(arr);
 
 
 function mergeSort(arr) {
-  // Your code here
+    if(array.length < 2) {
+      return array;
+    }
+
+    var middle = Math.floor(array.length / 2);
+    var left = array.slice(0, middle);
+    var right = array.slice(middle);
+
+    return mergeTopDown(mergeSortTopDown(left), mergeSortTopDown(right));
+  }
+  function mergeTopDown(left, right) {
+    var array = [];
+
+    while(left.length && right.length) {
+      if(left[0] < right[0]) {
+        array.push(left.shift());
+      } else {
+        array.push(right.shift());
+      }
+    }
+    return array.concat(left.slice()).concat(right.slice());
+  }
 }
 
 function binarySearch(arr, item) {
