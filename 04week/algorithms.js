@@ -39,10 +39,10 @@ function mergeSort(arr) {
      right =arr.slice(mid);
  return merge(mergeSort(left),mergeSort(right));
 }
-console.log(mergeSort(arr);
+console.log(mergeSort(arr));
 
-function mergeTopDown(left, right) {
-    while(left.length && right.length) {
+function mergeBothSides(left, right) {
+    while(left.len && right.len) {
       if(left[0] < right[0]) {
         array.push(left.shift());
       } else {
@@ -52,7 +52,7 @@ function mergeTopDown(left, right) {
     return array.concat(left.slice()).concat(right.slice());
   }
 }
-
+console.log(mergeBothSides());
 
 function binarySearch(arr, item) {
   // Your code here
