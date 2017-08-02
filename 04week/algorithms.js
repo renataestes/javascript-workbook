@@ -21,9 +21,10 @@ for (i=0; i< arr.length; i++){
     arr[i] = arr[i+1];
     arr[i+1] = temp;
   }
+ }
 }
 bubbleSort(arr);
-}
+
 
 function mergeSort(arr) {
   // Your code here
