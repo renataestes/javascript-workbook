@@ -11,80 +11,93 @@ function getRandomInt(min, max) {
 let arr = [];
 const len = arr.length;
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 10; i++) {
+  arr.push(getRandomInt(0, 1000));
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+let arr = [];
+const len = arr.length;
+
+for (let i = 0; i < 10; i++) {
   arr.push(getRandomInt(0, 1000));
 }
 
 function bubbleSort(arr){
-   var len = arr.length;
-   for (var i = len-1; i>=0; i--){
-     for(var j = 1; j<=i; j++){
-       if(arr[j-1]>arr[j]){
-           var temp = arr[j-1];
-           arr[j-1] = arr[j];
-           arr[j] = temp;
-        }
-     }
-   }
-   return arr;
+  let len = arr.length;
+  for (let i = len-1; i>=0; i--){
+    for(let j = 1; j<=i; j++){
+      if(arr[j-1]>arr[j]){
+        var temp = arr[j-1];
+        arr[j-1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
 }
 console.log(bubbleSort(arr));
 
-
-function mergeSort(arr) {
-  const len = arr.length;
-  if(len <2) {
-    return arr;
+function mergeSort(arr){
+  var len = arr.length;
+  if(len <2)
+  return arr;
+  var mid = Math.floor(len/2),
+  left = arr.slice(0,mid),
+  right =arr.slice(mid);
+  //send left and right to the mergeSort to broke it down into pieces
+  //then merge those
+  return merge(mergeSort(left),mergeSort(right));
 }
 
-let arr = [4, 10, 53, 6, 88, 27, 1, 96]
-const len = arr.length;
-const mid = Math.floor(len/2);
-const left = arr.slice(0,mid);
-const right =arr.slice(mid, len);
+function merge(left, right){
+  var result = [],
+  lLen = left.length,
+  rLen = right.length,
+  l = 0,
+  r = 0;
+  while(l < lLen && r < rLen){
+    if(left[l] < right[r]){
+      result.push(left[l]);
+      l++;
+    }
+    else{
+      result.push(right[r]);
+      r++;
+    }
+  }
+  return result.concat(left.slice(l)).concat(right.slice(r));
+}
 
-function mergeSort(arr) {
-  if(len <=1) {
-    return arr;
-}
- //return mergeSort(left, right);
-}
 console.log(mergeSort(arr));
 
-function mergeBothSides(left, right) {
-    //while(left.len && right.len) {
-      if(left[0] < right[0]) {
-        arr.push(left.shift());
-      } else {
-        arr.push(right.shift());
-      }
-    //}
-    return arr.concat(left.slice()).concat(right.slice());
-  }
-console.log(mergeBothSides(left, right));
+let arrSorted = mergeSort(arr);
 
+function binarySearch(arr, value){
+  let firstIndex = 0;
+  let lastIndex = arr.length - 1;
+  let middle = Math.floor((firstIndex + lastIndex)/2);
 
-//https://www.nczonline.net/blog/2009/09/01/computer-science-in-javascript-binary-search/
-//If middle equals value, you’re done.
-//If value is less than middle, go left.
-//If value is greater than middle, go right.
-//defintely do not continue if value doesnt exist (happens when start and last indexes are equal)
-function binarySearch(value){
-    const firstIndex = 0,
-    const lastIndex = arr.length - 1,
-    const middle = Math.floor((firstIndex + lastIndex)/2);
-
-    while(middle != value && firstIndex < lastIndex){
-        if (value < middle){
-            lastIndex = middle - 1;
-        } else if (value > middle){
-            firstIndex = middle + 1;
-        }
-        middle = Math.floor((firstIndex + lastIndex)/2);
+  while(arr[middle] != value && firstIndex < lastIndex){
+    if (value < arr[middle]){
+      lastIndex = middle - 1;
+    } else if (value > arr[middle]){
+      firstIndex = middle + 1;
     }
-    return (middle != value && firstIndex = lastIndex);
+    middle = Math.floor((firstIndex + lastIndex)/2);
+  }
+  if (arr[middle] != value) {
+    return false;
+  } else {
+    return true;
+  }
 }
-binarySearch(8);
+console.log(arrSorted);
+console.log(binarySearch(arrSorted, 4));
 
 // Tests
 
