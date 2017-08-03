@@ -16,6 +16,7 @@ for (let i = 0; i < 1000; i++) {
 }
 
 function bubbleSort(arr){
+   var len = arr.length;
    for (var i = len-1; i>=0; i--){
      for(var j = 1; j<=i; j++){
        if(arr[j-1]>arr[j]){
@@ -31,32 +32,59 @@ console.log(bubbleSort(arr));
 
 
 function mergeSort(arr) {
+  const len = arr.length;
   if(len <2) {
     return arr;
 }
- const mid = Math.floor(len/2),
-     left = arr.slice(0,mid),
-     right =arr.slice(mid);
- return merge(mergeSort(left),mergeSort(right));
+
+let arr = [4, 10, 53, 6, 88, 27, 1, 96]
+const len = arr.length;
+const mid = Math.floor(len/2);
+const left = arr.slice(0,mid);
+const right =arr.slice(mid, len);
+
+function mergeSort(arr) {
+  if(len <=1) {
+    return arr;
+}
+ //return mergeSort(left, right);
 }
 console.log(mergeSort(arr));
 
 function mergeBothSides(left, right) {
-    while(left.len && right.len) {
+    //while(left.len && right.len) {
       if(left[0] < right[0]) {
-        array.push(left.shift());
+        arr.push(left.shift());
       } else {
-        array.push(right.shift());
+        arr.push(right.shift());
       }
-    }
-    return array.concat(left.slice()).concat(right.slice());
+    //}
+    return arr.concat(left.slice()).concat(right.slice());
   }
-}
-console.log(mergeBothSides());
+console.log(mergeBothSides(left, right));
 
-function binarySearch(arr, item) {
-  // Your code here
+
+//https://www.nczonline.net/blog/2009/09/01/computer-science-in-javascript-binary-search/
+//If middle equals value, you’re done.
+//If value is less than middle, go left.
+//If value is greater than middle, go right.
+//defintely do not continue if value doesnt exist (happens when start and last indexes are equal)
+function binarySearch(value){
+    const firstIndex = 0,
+    const lastIndex = arr.length - 1,
+    const middle = Math.floor((firstIndex + lastIndex)/2);
+
+    while(middle != value && firstIndex < lastIndex){
+        if (value < middle){
+            lastIndex = middle - 1;
+        } else if (value > middle){
+            firstIndex = middle + 1;
+        }
+        middle = Math.floor((firstIndex + lastIndex)/2);
+    }
+    return (middle != value && firstIndex = lastIndex);
 }
+binarySearch(8);
 
 // Tests
 
