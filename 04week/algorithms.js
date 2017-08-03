@@ -13,19 +13,7 @@ const len = arr.length;
 
 for (let i = 0; i < 10; i++) {
   arr.push(getRandomInt(0, 1000));
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-let arr = [];
-const len = arr.length;
-
-for (let i = 0; i < 10; i++) {
-  arr.push(getRandomInt(0, 1000));
-}
+};
 
 function bubbleSort(arr){
   let len = arr.length;
@@ -45,10 +33,10 @@ console.log(bubbleSort(arr));
 function mergeSort(arr){
   var len = arr.length;
   if(len <2)
-  return arr;
+    return arr;
   var mid = Math.floor(len/2),
-  left = arr.slice(0,mid),
-  right =arr.slice(mid);
+    left = arr.slice(0,mid),
+    right =arr.slice(mid);
   //send left and right to the mergeSort to broke it down into pieces
   //then merge those
   return merge(mergeSort(left),mergeSort(right));
@@ -56,10 +44,10 @@ function mergeSort(arr){
 
 function merge(left, right){
   var result = [],
-  lLen = left.length,
-  rLen = right.length,
-  l = 0,
-  r = 0;
+    lLen = left.length,
+    rLen = right.length,
+    l = 0,
+    r = 0;
   while(l < lLen && r < rLen){
     if(left[l] < right[r]){
       result.push(left[l]);
