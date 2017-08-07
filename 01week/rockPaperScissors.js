@@ -48,15 +48,15 @@ const rl = readline.createInterface({
 
 //CORRECTIONS
 function rockPaperScissors(hand1, hand2) {
-   if (hand1 === hand2) {
-     return ("It's a tie!");
-   } else if (hand1 === 'rock' && hand2 === 'scissors') {
-     return ("Player 1 wins!");
-   } else if (hand1 === 'rock' && hand2 === 'paper') {
-     return ("Player 2 wins!");
-   } else if (hand1 === 'paper' && hand2 === 'scissors') {
-     return ("Player 2 wins!");
-   }
+  if (hand1 === hand2) {
+    return ("It's a tie!");
+  } else if (hand1 === 'rock' && hand2 === 'scissors') {
+    return ("Player 1 wins!");
+  } else if (hand1 === 'rock' && hand2 === 'paper') {
+    return ("Player 2 wins!");
+  } else if (hand1 === 'paper' && hand2 === 'scissors') {
+    return ("Player 2 wins!");
+  }
 }
 rockPaperScissors('rock', 'scissors');
 
