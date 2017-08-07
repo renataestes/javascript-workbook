@@ -47,12 +47,12 @@ stringToNum('5');
 //   return typeof datatype;
 // }
 const typeOf = (datatype) => typeof datatype;
-  console.log(typeof false);
-  console.log(typeof null);
-  console.log(typeof myLife);
-  console.log(typeof 1.08);
-  console.log(typeof NaN);
-  console.log(typeof "I love JS!");
+console.log(typeof false);
+console.log(typeof null);
+console.log(typeof myLife);
+console.log(typeof 1.08);
+console.log(typeof NaN);
+console.log(typeof "I love JS!");
 typeOf(5);
 
 
@@ -91,9 +91,9 @@ twoNumbers(10, 5);
 const theTruth = (arg1,arg2) => {
   if (9 > 8 || 9 > 10) {
     return true;
-} else {
-  return false;
-}
+  } else {
+    return false;
+  }
 }
 theTruth();
 
@@ -109,11 +109,11 @@ theTruth();
 // }
 // }
 // theTruth();
-const theTruth = (num1,num2) => {
+const noTruth = (num1,num2) => {
   if (num1 + num2 === 'string') {
     return true;
-} else {
-  return false;
+  } else {
+    return false;
+  }
 }
-}
-theTruth(3, 4);
+noTruth(3, 4);
