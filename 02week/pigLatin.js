@@ -5,28 +5,7 @@
 --If word starts with vowel add 'ay' to end of word
 --If consonant, split letters
 -Append consonants to the end of word
--THEN add 'ay' to the end
-*/
-
-//MY CODE
-var word = "renata";
-var firstLetter = word.charAt(0);
-
-function testForVowel(obj) {
-  var arrayVowels = ['a','e','i','o','u'];
-  return (arrayVowels.indexOf(obj) != -1);
-}
-testForVowel(firstLetter)
-
-function split_letters(letters){
-  return (letters.substring(1) + letters.charAt(0));
-}
-split_letters(word);
-
-function addAy(param) {
-  return param + "ay";
-}
-addAy(word);
+-THEN add 'ay' to the end*/
 
 const assert = require('assert');
 const readline = require('readline');
@@ -35,19 +14,58 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//CORRECTIONS
+// function split_letters(letters){
+//   return (letters.substring(1) + letters.charAt(0) + "ay");
+// };
+const split_letters = (word) => (word.substring(1)) + word.charAt(0);
 
 const translatePigLatin = (word) => {
-  if (first == "a" || first == "e" || first == "i" || first == "o" || first == "u")
-  {
-  return word + "ay";
-    };
+  let temp = word;
+  for (let i = 0; i < temp.length; i++) {
+    const first = temp.charAt(0);
+    // console.log(first);
+    if (first == "a" || first == "e" || first == "i" || first == "o" || first == "u") {
+      return temp + "ay";
+    } else {
+      temp = split_letters(temp);
+    }
+  }
+};
+
 
 function getPrompt() {
-    rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+  rl.question('word ', (answer) => {
+    console.log( translatePigLatin(answer) );
     getPrompt();
   });
 }
+
+// const translatePigLatin = (word) => {
+//   if (first == "a" || first == "e" || first == "i" || first == "o" || first == "u")
+//   {
+//   return word + "yay";
+// } else {
+//   return split_letters(word);
+// };
+// translatePigLatin('word');
+
+// function testForVowel(obj) {
+//   var arrayVowels = ['a','e','i','o','u'];
+//   return (arrayVowels.indexOf(obj) != -1);
+// }
+// testForVowel(firstLetter)
+
+// function split_letters(letters){
+//   return (letters.substring(1) + letters.charAt(0));
+// }
+// split_letters(word);
+//
+// function addAy(param) {
+//   return param + "ay";
+// }
+// addAy(word);
+
 
 // Tests
 
