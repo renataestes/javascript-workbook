@@ -7,8 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 function Checker() {
+
   // Your code here
 }
 
@@ -51,17 +51,27 @@ function Board() {
     }
     console.log(string);
   };
-
   // Your code here
+  var arr = [];
+  this.checkers = arr;
+  for(let i = 0; i<24; i++){
+  arr.push(new Checker())
 }
-function Game() {
+};
 
+function Game() {
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
     // Your code here
-  };
+  }
+  this.moveChecker = function(param1, param2) {
+    var from = param1.toString().split("");
+    var to = param2.toString().split("");
+    this.board.grid[to[0]][to[1]] = this.board.grid[from[0]][from[1]];
+    this.board.grid[from[0]][from[1]] = null;
+}
 }
 
 function getPrompt() {
@@ -89,6 +99,7 @@ if (typeof describe === 'function') {
       assert.equal(game.board.checkers.length, 24);
     });
   });
+
 
   describe('Game.moveChecker()', function () {
     it('should move a checker', function () {
