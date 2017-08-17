@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 function Checker() {
-
+  this.color = color;
   // Your code here
 }
 
@@ -52,11 +52,29 @@ function Board() {
     console.log(string);
   };
   // Your code here
-  var arr = [];
-  this.checkers = arr;
-  for(let i = 0; i<24; i++){
-  arr.push(new Checker())
+  this.checkers = [];
+    var whitePositions =  [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ];
+
+    var blackPositions = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ];
+
+    for(let i = 0; i<11; i++){
+    this.checkers.push(new Checker())
+  }
+  // Your code here
 }
+//   var arr = [];
+//   this.checkers = arr;
+//   for(let i = 0; i<24; i++){
+//   arr.push(new Checker())
+// }
 };
 
 function Game() {
