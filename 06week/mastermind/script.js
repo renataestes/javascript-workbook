@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let generatedAnswer = [];
   let turnCount = 0;
   let guess = 0;
+  //const guessArray = document.getElementsByTagName("tr").getElementsByClassName('guessRow${i} guessRow').children;
+  //console.log(guessArray);
 
 /*********************** COLOR SELECTOR SECTION *********************/
   // This section generates a palette of colors to choose from.
@@ -133,18 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
 //   return generatedAnswer;
 // }
 // generatedSolution();
-
-//   var div = document.createElement("div");
-//   div.color += boardColors[randomIndex];
-//   div.innerHTML = (generatedAnswer[i]);
-//   answerContainer.appendChild(div);
-//   }
+// }
 /*********************************************************************/
 
 
 
 /************************** GENERATE BOARD ***************************/
-  function generateBoard() {
+function generateBoard() {
+    // console.log(guessArray[1]);
     let numGuessRows = 10;
     const boardTable = document.createElement("table");
     document.body.appendChild(boardTable);
@@ -212,13 +210,54 @@ submitButton[0].addEventListener('click', () => {
   //   }
   //   return exactMatch + '-' + correctColor;
   // }
+  function mastermind(guess) {
+    if (guess === generatedCode) {
+      console.log('You win!');
+      return;
+    } else {
+      console.log('Keep trying');
+      generateHint(guess);
+    }
+  }
+
+  function generateHint(guess) {
+    //let guessArray = guess.split('');
+    let counter=0;
+
+    for(let i = 0; i < guessArray.length;i++)
+    {
+      for(let j=0; j < generatedAnswer.length;j++)
+      {
+        if (guessArray[i]===generatedAnswer[j])
+          counter+=1;
+      }
+    }
+    console.log('you have '+counter+' correct letters');
+
+    let positionCounter=0;
+    if (guessArray[0] === generatedAnswer[0]) {
+      positionCounter+=1;
+    }
+    if (guessArray[1] === generatedAnswer[1]) {
+      positionCounter+=1;
+    }
+    if (guessArray[2] === generatedAnswer[2]) {
+      positionCounter+=1;
+    }
+    if (guessArray[3] === generatedAnswer[3]) {
+      positionCounter+=1;
+    }
+    console.log('you have '+positionCounter+' letters in the correct position');
+  }
 
 });
 
 /*******************************************************************/
 
   function populateChoice(selectedColor) {
+
     const theRow = document.getElementsByClassName(`guessRow${turnCount}`);
+
     const thePeg = theRow[0].children[guess];
     // console.log(selectedColor.target.textContent, selectedColor.target.className);
     // console.log(theRow, thePeg);
