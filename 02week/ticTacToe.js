@@ -1,5 +1,21 @@
 'use strict';
 
+
+//if no, push that player marker to that index
+//make a copy to the board
+//const updatedBoard = [...board];
+//slice the row, store to const, (not splice)
+//const updatedRow = board.slice(row, row+1) [0];
+//console.log(updatedRow, 'Row')
+
+/*Check it marker exists at row/column
+If no wins, switch player, display the updated boardIf any wins come back return the player winner, clear the board*/
+
+//Horizontal Win [0,1,2], [3,4,5], [6,7,8]
+// Vertical Win: [0,3,6], [1,4,7], [2,5,8]
+// Diagonal Win: [0,4,8], [0,2,6]
+// Only way to win is if the total is 0 or if the total is 3. X are worth 1 point and O are worth 0 points
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -23,17 +39,31 @@ function printBoard() {
   console.log('2 ' + board[2].join(' | '));
 }
 
+// Horizontal Win: [0,1,2], [3,4,5], [6,7,8]
 function horizontalWin() {
-  // Your code here
-}
+  if ('a win in a row') {
+    [ { x: 0, o: 6 }, { x: 1, o: 7 }, { x: 2, o: 8 }] || [ { x: 3, o: 0 }, {x: 4, o: 1 }, { x: 5, o: 2 }] || [ { x: 6, o: 3 }, { x: 7, o: 4 }, { x: 8, o: 5 }]
+  };
+  return ('player " " wins!');
+};
 
+// Vertical Win: [0,3,6], [1,4,7], [2,5,8]
 function verticalWin() {
-  // Your code here
-}
+  if ('a win in a column') {
+    [ { x: 0, o: 1 }, { x: 3, o: 4 }, { x: 6, o: 7 }] || [ { x: 2, o: 0 }, { x: 5, o: 3 }, { x: 8, o: 6 }] || [ { x: 1, o: 2 }, { x: 4, o: 5 }, { x: 7, o: 8 }]
 
+  };
+  return ('player " " wins!');
+};
+
+// Diagonal Win: [0,4,8], [2,4,6]
 function diagonalWin() {
-  // Your code here
-}
+  if ('a win diagonally') {
+    [ { x: 0, o: 2 }, { x: 4, o: 4 }, { x: 8, o: 6 }] || [ { x: 2, o: 0 }, { x: 4, o: 4 }, { x: 6, o: 8 }]
+
+  };
+  return ('player " " wins!');
+};
 
 function checkForWin() {
   // Your code here
