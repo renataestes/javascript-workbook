@@ -1,26 +1,30 @@
 'use strict';
 
-const assert = require('assert');
+const arr = [1, 2, 6, 10, 12];
 
-function forEach(arr, callback) {
-  // Your code here
-}
+arr.forEach((num) => {
+  console.log(num + 2);
+});
 
-function map(arr, callback) {
-  // Your code here
-}
+const addTwo = arr.map((num) => {
+  return num + 2;
+});
+console.log(addTwo);
 
-function filter(arr, callback) {
-  // Your code here
-}
+const numLessFive = arr.filter((num) => {
+  return num < 5;
+});
+console.log(numLessFive);
 
-function some(arr, callback) {
-  // Your code here
-}
+const numAboveEleven = arr.some((num) => {
+  return num > 11;
+});
+console.log(numAboveEleven);
 
-function every(arr, callback) {
-  // Your code here
-}
+const numAboveSeven = arr.every((num) => {
+  return num > 7;
+});
+console.log(numAboveSeven);
 
 if (typeof describe === 'function') {
 
