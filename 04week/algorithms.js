@@ -9,22 +9,83 @@ function getRandomInt(min, max) {
 }
 
 let arr = [];
+const len = arr.length;
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 10; i++) {
   arr.push(getRandomInt(0, 1000));
+};
+
+function bubbleSort(arr){
+  let len = arr.length;
+  for (let i = len-1; i>=0; i--){
+    for(let j = 1; j<=i; j++){
+      if(arr[j-1]>arr[j]){
+        var temp = arr[j-1];
+        arr[j-1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+}
+console.log(bubbleSort(arr));
+
+function mergeSort(arr){
+  var len = arr.length;
+  if(len <2)
+    return arr;
+  var mid = Math.floor(len/2),
+    left = arr.slice(0,mid),
+    right =arr.slice(mid);
+  //send left and right to the mergeSort to broke it down into pieces
+  //then merge those
+  return merge(mergeSort(left),mergeSort(right));
 }
 
-function bubbleSort(arr) {
-  // Your code here
+function merge(left, right){
+  var result = [],
+    lLen = left.length,
+    rLen = right.length,
+    l = 0,
+    r = 0;
+  while(l < lLen && r < rLen){
+    if(left[l] < right[r]){
+      result.push(left[l]);
+      l++;
+    }
+    else{
+      result.push(right[r]);
+      r++;
+    }
+  }
+  return result.concat(left.slice(l)).concat(right.slice(r));
 }
 
-function mergeSort(arr) {
-  // Your code here
-}
+console.log(mergeSort(arr));
 
-function binarySearch(arr, item) {
-  // Your code here
+let arrSorted = mergeSort(arr);
+
+function binarySearch(arr, value){
+  let firstIndex = 0;
+  let lastIndex = arr.length - 1;
+  let middle = Math.floor((firstIndex + lastIndex)/2);
+
+  while(arr[middle] != value && firstIndex < lastIndex){
+    if (value < arr[middle]){
+      lastIndex = middle - 1;
+    } else if (value > arr[middle]){
+      firstIndex = middle + 1;
+    }
+    middle = Math.floor((firstIndex + lastIndex)/2);
+  }
+  if (arr[middle] != value) {
+    return false;
+  } else {
+    return true;
+  }
 }
+console.log(arrSorted);
+console.log(binarySearch(arrSorted, 4));
 
 // Tests
 
