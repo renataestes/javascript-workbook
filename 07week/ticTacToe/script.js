@@ -62,7 +62,7 @@ for(var i=0 ;i < lines.length; i++)
 //   if(reset([state['cell'+lines[i][0]],
 //             state['cell'+lines[i][1]],
 //             state['cell'+lines[i][2]]])==0)
-//             return this.state.reset = '';
+//             this.state.reset = '';
 // }
 
 this.setState(state)
